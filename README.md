@@ -89,6 +89,10 @@ Please feel free to submit a Pull Request or open an Issue.
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## 📸 Screenshot
+
+<img width="602" height="1056" alt="Universal Intel Chipset Updater" src="https://github.com/user-attachments/assets/288c2ff2-36e0-4199-8780-3dc881e009fd" />
+
 ## ⚠️ Disclaimer
 
 This tool is not affiliated with Intel Corporation. Drivers are sourced from official Intel servers. Use at your own risk. Always backup your system before updating drivers.
