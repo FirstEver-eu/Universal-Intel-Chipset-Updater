@@ -103,7 +103,7 @@ This tool is not affiliated with Intel Corporation. Drivers are sourced from off
 - 🌐 **Website**: [www.firstever.tech](https://www.firstever.tech)
 - 💼 **LinkedIn**: [Marcin Grygiel](https://www.linkedin.com/in/marcin-grygiel/)
 - 🔧 **GitHub**: [FirstEverTech](https://github.com/FirstEverTech)
-- 💖 **Support**: [PayPal](https://paypal.me/YourPayPalLink) | [Buy Me a Coffee](https://buymeacoffee.com/firstevertech)
+- 💖 **Support**: [PayPal](https://www.paypal.com/donate/?hosted_button_id=48VGDSCNJAPTJ) | [Buy Me a Coffee](https://buymeacoffee.com/firstevertech)
 
 Your support helps maintain and improve this project for everyone!
 
