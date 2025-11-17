@@ -13,7 +13,7 @@ Prefix = \SetupChipset.exe
 Name = Intel Chipset Device Software
 DriverVer = 17/06/2025,10.1.20256.8665
 Variant = Consumer
-Link = https://github.com/FirstEverTech/Universal-Intel-Chipset-Updater/releases/download/10.1.20256.8665/intel_chipset_10.1.20256.8665.zip
+Link = https://github.com/FirstEverTech/Universal-Intel-Chipset-Updater/releases/download/v10.1.20256.8665/intel_chipset_10.1.20256.8665.zip
 Prefix = \SetupChipset.exe
 
 Name = Intel Chipset Device Software
