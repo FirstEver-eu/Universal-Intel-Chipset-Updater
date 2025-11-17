@@ -12,7 +12,7 @@ Automated tool to detect and update Intel chipset drivers to the latest versions
 - 🔍 **Automatic Hardware Detection** - Identifies your Intel chipset and finds matching drivers
 - 📦 **Latest Drivers** - Always downloads the most recent official Intel chipset drivers
 - 🛡️ **Safe Installation** - Uses official Intel installers with proper parameters
-- 🔄 **Smart Updates** - Offers driver updates when available and allows reinstalling the current version
+- 🔄 **Smart Updates** - Provides driver updates when new versions are available and allows reinstalling the current one
 - 💻 **Broad Compatibility** - Supports desktop, mobile, workstation, server, and embedded platforms
 - ⚡ **Easy to Use** - Simple batch file execution with automatic administrator elevation
 - 📊 **Comprehensive Database** - Based on analysis of 88 official Intel installer versions with 82,663 driver version comparisons
