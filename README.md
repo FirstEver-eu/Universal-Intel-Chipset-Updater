@@ -95,9 +95,8 @@ For detailed logging and troubleshooting, you can:
 We welcome contributions! If you have:
 
 - New driver versions or platform information
-- Improvements to the detection logic
-- Bug fixes or feature enhancements
-- Additional HW_ID mappings for the database
+- New HW_ID for the database
+- Bug reports or script improvements
 
 Please feel free to submit a Pull Request or open an Issue.
 
