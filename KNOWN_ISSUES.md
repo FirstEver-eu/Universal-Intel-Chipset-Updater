@@ -1,5 +1,5 @@
-# 🐛 Known Issues & Solutions
 <a id="top"></a>
+# 🐛 Known Issues & Solutions
 
 This document contains all reported issues, bugs, and their corresponding solutions for the Universal Intel Chipset Drivers Updater. The list is maintained by the community and updated regularly.
 
