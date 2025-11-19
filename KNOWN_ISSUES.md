@@ -1,4 +1,5 @@
 # 🐛 Known Issues & Solutions
+<a id="top"></a>
 
 This document contains all reported issues, bugs, and their corresponding solutions for the Universal Intel Chipset Drivers Updater. The list is maintained by the community and updated regularly.
 
@@ -6,6 +7,7 @@ This document contains all reported issues, bugs, and their corresponding soluti
 
 - [Issue #1: Touchpad Stops Working After Chipset Update](#issue-1-touchpad-stops-working-after-chipset-update)
 - [Issue #2: PowerShell Execution Policy Restriction](#issue-2-powershell-execution-policy-restriction)
+- [Issue #3: Script Fails to Extract Drivers](#issue-3-script-fails-to-extract-drivers)
 
 ---
 
@@ -29,7 +31,7 @@ Chipset driver update interferes with touchpad driver functionality.
 2. Run the downloaded installer as Administrator  
 3. Restart your system
 
-[↑ Back to top](#quick-navigation)
+[↑ Back to top](#top)
 
 ---
 
@@ -105,7 +107,26 @@ If the SFX continues to fail:
   Set-ExecutionPolicy -ExecutionPolicy Restricted -Scope CurrentUser
   ```
 
-[↑ Back to top](#quick-navigation)
+[↑ Back to top](#top)
+
+---
+
+## Issue #3: Script Fails to Extract Drivers
+
+**Symptoms**:  
+Script downloads drivers but fails to extract or install them.
+
+**Cause**:  
+Corrupted download or temporary file conflicts.
+
+**Solution**:
+1. Delete contents of:  
+   ```
+   C:\Windows\Temp\IntelChipset   ```
+2. Run the script again  
+3. Ensure a stable internet connection during download
+
+[↑ Back to top](#top)
 
 ---
 
@@ -120,4 +141,4 @@ If you encounter a new issue not listed here, please:
 
 ---
 
-Last Updated: 19/11/2025
+Last Updated: ${current_date}
