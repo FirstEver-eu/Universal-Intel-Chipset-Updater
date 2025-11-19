@@ -120,4 +120,4 @@ If you encounter a new issue not listed here, please:
 
 ---
 
-Last Updated: ${current_date}
+Last Updated: 19/11/2025
