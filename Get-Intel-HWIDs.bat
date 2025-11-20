@@ -8,7 +8,7 @@ setlocal enabledelayedexpansion
 mode con: cols=80 lines=25
 
 echo /**************************************************************************
-echo **                  INTEL CHIPSET HW_ID DETECTION TOOL                   **
+echo **                  INTEL CHIPSET HWIDs DETECTION TOOL                   **
 echo ** --------------------------------------------------------------------- **
 echo **                                                                       **
 echo **         Detects Intel hardware IDs for platform identification        **
@@ -22,7 +22,7 @@ echo **         Drivers are sourced from official Intel servers.              **
 echo **         Use at your own risk.                                         **
 echo ** --------------------------------------------------------------------- **
 echo **                                                                       **
-echo **         GitHub.com/FirstEverTech/Intel-Chipset-Driver-Updater         **
+echo **         GitHub.com/FirstEverTech/Universal-Intel-Chipset-Updater      **
 echo **                                                                       **
 echo *************************************************************************/
 echo.
