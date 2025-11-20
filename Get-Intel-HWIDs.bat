@@ -1,7 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-:: Intel Chipset HW_ID Detection Tool
+:: Intel Chipset HWIDs Detection Tool
 :: Lists all Intel devices with their Hardware IDs for platform identification
 
 :: Set console window size to 75 columns and 25 lines
