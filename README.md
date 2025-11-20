@@ -10,8 +10,8 @@ This utility automatically scans your system for Intel chipset components, ident
 
 ## ✨ Features
 
-- 🔍 **Automatic Hardware Detection** - Identifies Intel chipset components and matches them with INF files using a comprehensive HWID database
-- 📦 **Latest Official INF Files** - Downloads the most recent Intel chipset INF versions from official sources
+- 🔍 **Automatic Hardware Detection** - Identifies Intel chipset components and matches them with INF files
+- 📦 **Latest Official INF Files** - Downloads official Intel INF installers, each verified with a valid Intel digital certificate
 - 🛡️ **Safe Installation Process** - Uses genuine Intel installers with proper command-line parameters
 - 🔄 **Smart Update Intelligence** - Updates to newer INF versions or allows reinstallation of current versions
 - 💻 **Broad Platform Compatibility** - Supports desktop, mobile, workstation, server, and embedded Intel platforms
