@@ -1,6 +1,6 @@
-# Intel Chipset Drivers Update Script
-# Based on Intel Chipset Drivers Latest database
-# Downloads latest drivers from GitHub and updates if newer versions available
+# Intel Chipset Device Update Script
+# Based on Intel Chipset Device Latest database
+# Downloads latest INF files from GitHub and updates if newer versions available
 # By Marcin Grygiel / www.firstever.tech
 
 # Check if running as administrator
@@ -11,13 +11,13 @@ if (-NOT ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 
 # GitHub repository URLs
 $githubBaseUrl = "https://raw.githubusercontent.com/FirstEverTech/Universal-Intel-Chipset-Updater/main/"
-$chipsetDriversUrl = $githubBaseUrl + "Intel_Chipset_Drivers_Latest.md"
-$downloadListUrl = $githubBaseUrl + "Intel_Chipset_Drivers_Download.txt"
+$chipsetINFsUrl = $githubBaseUrl + "Intel_Chipset_INFs_Latest.md"
+$downloadListUrl = $githubBaseUrl + "Intel_Chipset_INFs_Download.txt"
 
 # Temporary directory for downloads
 $tempDir = "C:\Windows\Temp\IntelChipset"
 
-# Function to detect Intel Chipset HW_IDs from the local system (MAIN CHIPSET ONLY)
+# Function to detect Intel Chipset HWIDs from the local system (MAIN CHIPSET ONLY)
 function Get-IntelChipsetHWIDs {
     $intelChipsets = @()
     $chipsetCount = 0
@@ -37,7 +37,7 @@ function Get-IntelChipsetHWIDs {
                 # Main chipsets typically have descriptions containing "Chipset", "LPC", "PCI Express Root Port", etc.
                 if ($description -match 'Chipset|LPC|PCI Express Root Port|PCI-to-PCI bridge|Motherboard Resources') {
                     $intelChipsets += [PSCustomObject]@{
-                        HW_ID = $deviceId
+                        HWID = $deviceId
                         Description = $description
                         HardwareID = $hwid
                         InstanceId = $device.InstanceId
@@ -60,7 +60,7 @@ function Get-IntelChipsetHWIDs {
                     $description = $device.FriendlyName
 
                     $intelChipsets += [PSCustomObject]@{
-                        HW_ID = $deviceId
+                        HWID = $deviceId
                         Description = $description
                         HardwareID = $hwid
                         InstanceId = $device.InstanceId
@@ -77,17 +77,17 @@ function Get-IntelChipsetHWIDs {
     }
 
     Write-Host "Scanning completed: found $chipsetCount potential chipset devices" -ForegroundColor Green
-    return $intelChipsets | Sort-Object HW_ID -Unique
+    return $intelChipsets | Sort-Object HWID -Unique
 }
 
-# Function to get current driver version for a device
-function Get-CurrentDriverVersion {
+# Function to get current INFs version for a device
+function Get-CurrentINFVersion {
     param([string]$DeviceInstanceId)
 
     try {
         $device = Get-PnpDevice | Where-Object {$_.InstanceId -eq $deviceInstanceId}
         if ($device) {
-            $versionProperty = $device | Get-PnpDeviceProperty -KeyName "DEVPKEY_Device_DriverVersion" -ErrorAction SilentlyContinue
+            $versionProperty = $device | Get-PnpDeviceProperty -KeyName "DEVPKEY_Device_INFVersion" -ErrorAction SilentlyContinue
             if ($versionProperty -and $versionProperty.Data) {
                 return $versionProperty.Data
             }
@@ -95,12 +95,12 @@ function Get-CurrentDriverVersion {
     } catch {
         # Fallback to WMI if the above fails
         try {
-            $driverInfo = Get-CimInstance -ClassName Win32_PnPSignedDriver | Where-Object { 
-                $_.DeviceID -eq $deviceInstanceId -and $_.DriverVersion
+            $driverInfo = Get-CimInstance -ClassName Win32_PnPSignedINF | Where-Object { 
+                $_.DeviceID -eq $deviceInstanceId -and $_.INFVersion
             } | Select-Object -First 1
 
             if ($driverInfo) {
-                return $driverInfo.DriverVersion
+                return $driverInfo.INFVersion
             }
         } catch {
             # Ignore errors
@@ -109,8 +109,8 @@ function Get-CurrentDriverVersion {
     return $null
 }
 
-# Function to clean up temporary driver folders
-function Clear-TempDriverFolders {
+# Function to clean up temporary INF files folders
+function Clear-TempINFFolders {
     try {
         if (Test-Path $tempDir) {
             Remove-Item -Path $tempDir -Recurse -Force -ErrorAction SilentlyContinue
@@ -120,22 +120,22 @@ function Clear-TempDriverFolders {
     }
 }
 
-# Function to download and parse driver information from GitHub
-function Get-LatestDriverInfo {
+# Function to download and parse INF files information from GitHub
+function Get-LatestINFInfo {
     param([string]$Url)
 
     try {
         $content = Invoke-WebRequest -Uri $Url -UseBasicParsing -ErrorAction Stop
         return $content.Content
     } catch {
-        Write-Host "Error downloading driver information from GitHub." -ForegroundColor Red
+        Write-Host "Error downloading INF files information from GitHub." -ForegroundColor Red
         Write-Host "Please check your internet connection and try again." -ForegroundColor Yellow
         return $null
     }
 }
 
-# Function to parse chipset drivers information from Markdown
-function Parse-ChipsetDriversFromMarkdown {
+# Function to parse chipset INF files information from Markdown
+function Parse-ChipsetINFsFromMarkdown {
     param([string]$MarkdownContent)
 
     $chipsetData = @{}
@@ -207,7 +207,7 @@ function Parse-ChipsetDriversFromMarkdown {
         }
 
         # Detect table headers and data rows
-        if ($line -match '^\|.*Driver.*\|.*Package.*\|.*Version.*\|.*Date.*\|.*HW_IDs.*\|$' -and $currentPlatform) {
+        if ($line -match '^\|.*INF.*\|.*Package.*\|.*Version.*\|.*Date.*\|.*HWIDs.*\|$' -and $currentPlatform) {
             # Skip separator line
             $i++
 
@@ -234,7 +234,7 @@ function Parse-ChipsetDriversFromMarkdown {
                                 Platform = $currentPlatform
                                 Section = $sectionName
                                 Generation = $currentGeneration
-                                Driver = $driver
+                                INF = $driver
                                 Package = $package
                                 Version = $version
                                 Date = $date
@@ -268,7 +268,7 @@ function Parse-DownloadList {
         foreach ($line in $lines) {
             if ($line -match '^Name\s*=\s*(.+)') {
                 $name = $matches[1]
-            } elseif ($line -match '^DriverVer\s*=\s*[^,]+,([0-9.]+)') {
+            } elseif ($line -match '^INFVer\s*=\s*[^,]+,([0-9.]+)') {
                 $driverVer = $matches[1]
             } elseif ($line -match '^Link\s*=\s*(.+)') {
                 $link = $matches[1]
@@ -283,7 +283,7 @@ function Parse-DownloadList {
             $key = "$driverVer-$variant"
             $downloadData[$key] = @{
                 Name = $name
-                DriverVer = $driverVer
+                INFVer = $driverVer
                 Link = $link
                 Prefix = $prefix
                 Variant = $variant
@@ -362,27 +362,27 @@ function Download-Extract-File {
             return $success
         }
     } catch {
-        Write-Host "Error downloading or extracting driver package: $_" -ForegroundColor Red
+        Write-Host "Error downloading or extracting INF files package: $_" -ForegroundColor Red
     }
     return $false
 }
 
-# Function to install chipset driver
-function Install-ChipsetDriver {
-    param([string]$DriverPath, [string]$Prefix)
+# Function to install chipset INF files
+function Install-ChipsetINF {
+    param([string]$INFPath, [string]$Prefix)
 
     # Determine setup path based on prefix
     if ($Prefix) {
-        $setupPath = Join-Path $DriverPath ($Prefix.TrimStart('\'))
+        $setupPath = Join-Path $INFPath ($Prefix.TrimStart('\'))
     } else {
-        $setupPath = Join-Path $DriverPath "SetupChipset.exe"
+        $setupPath = Join-Path $INFPath "SetupChipset.exe"
     }
 
     if (Test-Path $setupPath) {
 
 Write-Host ""
 Write-Host "IMPORTANT NOTICE:" -ForegroundColor Yellow
-Write-Host "The driver updater is now running." -ForegroundColor Yellow
+Write-Host "The INF files updater is now running." -ForegroundColor Yellow
 Write-Host "Please DO NOT close this window or interrupt the process." -ForegroundColor Yellow
 Write-Host "The system may appear unresponsive during installation - this is normal." -ForegroundColor Yellow
 Write-Host ""
@@ -396,7 +396,7 @@ Write-Host ""
 
             # Code 3010 = SUCCESS - RESTART REQUIRED (this is not an error!)
             if ($process.ExitCode -eq 0 -or $process.ExitCode -eq 3010) {
-                Write-Host "Driver installed successfully." -ForegroundColor Green
+                Write-Host "INF files installed successfully." -ForegroundColor Green
                 return $true
             } else {
                 Write-Host "Installer finished with exit code: $($process.ExitCode)" -ForegroundColor Red
@@ -410,32 +410,32 @@ Write-Host ""
     } else {
         Write-Host "Error: Installer not found at $setupPath" -ForegroundColor Red
         # Try to find any setup executable
-        $exeFiles = Get-ChildItem -Path $DriverPath -Filter "*.exe" -Recurse | Where-Object {
+        $exeFiles = Get-ChildItem -Path $INFPath -Filter "*.exe" -Recurse | Where-Object {
             $_.Name -like "*Setup*" -or $_.Name -like "*Install*"
         }
         if ($exeFiles) {
             Write-Host "Found alternative installer: $($exeFiles[0].FullName)" -ForegroundColor Yellow
-            return Install-ChipsetDriver -DriverPath $DriverPath -Prefix "\$($exeFiles[0].Name)"
+            return Install-ChipsetINF -INFPath $INFPath -Prefix "\$($exeFiles[0].Name)"
         }
         return $false
     }
 }
 
 # Main script execution
-Write-Host "=== Intel Chipset Drivers Update ===" -ForegroundColor Cyan
+Write-Host "=== Intel Chipset INFs Update ===" -ForegroundColor Cyan
 Write-Host "Scanning for Intel Chipset..." -ForegroundColor Green
 
 # Create temporary directory
-Clear-TempDriverFolders
+Clear-TempINFFolders
 New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
 
-# Detect Intel Chipset HW_IDs on local system (MAIN CHIPSET ONLY)
+# Detect Intel Chipset HWIDs on local system (MAIN CHIPSET ONLY)
 $detectedIntelChipsets = Get-IntelChipsetHWIDs
 
 if ($detectedIntelChipsets.Count -eq 0) {
     Write-Host "No Intel chipset devices found." -ForegroundColor Yellow
     Write-Host "If you have an Intel platform, make sure you have at least SandyBridge or newer platform." -ForegroundColor Yellow
-    Clear-TempDriverFolders
+    Clear-TempINFFolders
     exit
 }
 
@@ -443,23 +443,23 @@ Write-Host "Found $($detectedIntelChipsets.Count) Intel chipset device(s)" -Fore
 
 # Download latest driver information
 Write-Host "Downloading latest driver information..." -ForegroundColor Green
-$chipsetInfo = Get-LatestDriverInfo -Url $chipsetDriversUrl
-$downloadListInfo = Get-LatestDriverInfo -Url $downloadListUrl
+$chipsetInfo = Get-LatestINFInfo -Url $chipsetINFsUrl
+$downloadListInfo = Get-LatestINFInfo -Url $downloadListUrl
 
 if (-not $chipsetInfo -or -not $downloadListInfo) {
     Write-Host "Failed to download driver information. Exiting." -ForegroundColor Red
-    Clear-TempDriverFolders
+    Clear-TempINFFolders
     exit
 }
 
 # Parse driver information
 Write-Host "Parsing driver information..." -ForegroundColor Green
-$chipsetData = Parse-ChipsetDriversFromMarkdown -MarkdownContent $chipsetInfo
+$chipsetData = Parse-ChipsetINFsFromMarkdown -MarkdownContent $chipsetInfo
 $downloadData = Parse-DownloadList -DownloadListContent $downloadListInfo
 
 if ($chipsetData.Count -eq 0 -or $downloadData.Count -eq 0) {
     Write-Host "Error: Could not parse driver information." -ForegroundColor Red
-    Clear-TempDriverFolders
+    Clear-TempINFFolders
     exit
 }
 
@@ -468,11 +468,11 @@ $matchingChipsets = @()
 $chipsetUpdateAvailable = $false
 
 foreach ($device in $detectedIntelChipsets) {
-    $hwId = $device.HW_ID
+    $hwId = $device.HWID
     if ($chipsetData.ContainsKey($hwId)) {
         $chipsetInfo = $chipsetData[$hwId]
-        # Using InstanceId to get driver version
-        $currentVersion = Get-CurrentDriverVersion -DeviceInstanceId $device.InstanceId
+        # Using InstanceId to get INF files version
+        $currentVersion = Get-CurrentINFVersion -DeviceInstanceId $device.InstanceId
 
         $matchingChipsets += @{
             Device = $device
@@ -482,18 +482,18 @@ foreach ($device in $detectedIntelChipsets) {
             InstanceId = $device.InstanceId
         }
 
-        Write-Host "Found compatible platform: $($chipsetInfo.Platform) (HW_ID: $hwId)" -ForegroundColor Green
+        Write-Host "Found compatible platform: $($chipsetInfo.Platform) (HWID: $hwId)" -ForegroundColor Green
     }
 }
 
 if ($matchingChipsets.Count -eq 0) {
     Write-Host "No compatible Intel chipset platforms found." -ForegroundColor Yellow
     Write-Host "If you have an Intel platform, make sure you have at least SandyBridge or newer platform." -ForegroundColor Yellow
-    Clear-TempDriverFolders
+    Clear-TempINFFolders
     exit
 }
 
-# Group by platform to avoid duplicate installations of the same driver
+# Group by platform to avoid duplicate installations of the same INF files
 $uniquePlatforms = @{}
 foreach ($match in $matchingChipsets) {
     $platform = $match.ChipsetInfo.Platform
@@ -556,16 +556,16 @@ foreach ($platformName in $uniquePlatforms.Keys) {
             $chipsetUpdateAvailable = $true
         }
     } else {
-        Write-Host "Status: Driver will be installed" -ForegroundColor Yellow
+        Write-Host "Status: INF files will be installed" -ForegroundColor Yellow
         $chipsetUpdateAvailable = $true
     }
 
     # Show asterisk warning if needed
     if ($chipsetInfo.HasAsterisk) {
         Write-Host "" -ForegroundColor Yellow
-        Write-Host "Note: Drivers marked with (*) do not have embedded dates" -ForegroundColor Yellow
+        Write-Host "Note: INFs marked with (*) do not have embedded dates" -ForegroundColor Yellow
         Write-Host "      and will show as 07/18/1968 in system. The actual" -ForegroundColor Yellow
-        Write-Host "      driver release corresponds to the installer date." -ForegroundColor Yellow
+        Write-Host "      INFs release corresponds to the installer date." -ForegroundColor Yellow
     }
 
     Write-Host ""
@@ -574,12 +574,12 @@ foreach ($platformName in $uniquePlatforms.Keys) {
 # If all devices are up to date, ask if user wants to reinstall anyway
 if ((-not $chipsetUpdateAvailable) -and ($uniquePlatforms.Count -gt 0)) {
     Write-Host "All platforms are up to date." -ForegroundColor Green
-    $response = Read-Host "Do you want to force reinstall this drivers anyway? (Y/N)"
+    $response = Read-Host "Do you want to force reinstall this INF files anyway? (Y/N)"
     if ($response -eq "Y" -or $response -eq "y") {
         $chipsetUpdateAvailable = $true
     } else {
         Write-Host "Installation cancelled." -ForegroundColor Yellow
-        Clear-TempDriverFolders
+        Clear-TempINFFolders
         exit
     }
 }
@@ -588,19 +588,19 @@ if ((-not $chipsetUpdateAvailable) -and ($uniquePlatforms.Count -gt 0)) {
 if ($chipsetUpdateAvailable) {
     Write-Host ""
     Write-Host "IMPORTANT NOTICE:" -ForegroundColor Yellow
-    Write-Host "The driver update process may take several minutes to complete." -ForegroundColor Yellow
+    Write-Host "The INF files update process may take several minutes to complete." -ForegroundColor Yellow
     Write-Host "During installation, the screen may temporarily go black and some" -ForegroundColor Yellow
-    Write-Host "devices may temporarily disconnect as PCIe bus drivers are being" -ForegroundColor Yellow
+    Write-Host "devices may temporarily disconnect as PCIe bus INF files are being" -ForegroundColor Yellow
     Write-Host "updated. This is normal behavior and the system will return to" -ForegroundColor Yellow
     Write-Host "normal operation once the installation is complete." -ForegroundColor Yellow
     Write-Host ""
-    $response = Read-Host "Do you want to proceed with driver update? (Y/N)"
+    $response = Read-Host "Do you want to proceed with INF files update? (Y/N)"
 } else {
     $response = "N"
 }
 
 if ($response -eq "Y" -or $response -eq "y") {
-    Write-Host "`nStarting driver update process..." -ForegroundColor Green
+    Write-Host "`nStarting INF files update process..." -ForegroundColor Green
 
     # INTELLIGENT PACKAGE MANAGEMENT: Group by package version and install only unique packages
     $packageGroups = @{}
@@ -642,9 +642,9 @@ if ($response -eq "Y" -or $response -eq "y") {
 
             Write-Host "Downloading Intel Chipset Device Software $cleanPackageVersion ($variant)..." -ForegroundColor Green
             if (Download-Extract-File -Url $downloadInfo.Link -OutputPath $driverPath -Prefix $downloadInfo.Prefix) {
-                Write-Host "Driver downloaded and extracted successfully." -ForegroundColor Green
+                Write-Host "INF files downloaded and extracted successfully." -ForegroundColor Green
                 
-                if (Install-ChipsetDriver -DriverPath $driverPath -Prefix $downloadInfo.Prefix) {
+                if (Install-ChipsetINF -INFPath $driverPath -Prefix $downloadInfo.Prefix) {
                     $successCount++
                     $processedPackages[$cleanPackageVersion] = $true
                     Write-Host "Successfully installed package $cleanPackageVersion for $($platforms.Count) platform(s)" -ForegroundColor Green
@@ -656,7 +656,7 @@ if ($response -eq "Y" -or $response -eq "y") {
             }
         } else {
             Write-Host "Error: Download information not found for package version $cleanPackageVersion (variant: $variant)" -ForegroundColor Red
-            Write-Host "Please check Intel_Chipset_Drivers_Download.txt for missing entries" -ForegroundColor Yellow
+            Write-Host "Please check Intel_Chipset_INFs_Download.txt for missing entries" -ForegroundColor Yellow
         }
     }
 
@@ -666,7 +666,7 @@ if ($response -eq "Y" -or $response -eq "y") {
         
         Write-Host "`nSummary: Installed $successCount unique package(s) for all detected platforms" -ForegroundColor Green
     } else {
-        Write-Host "`nNo drivers were successfully installed." -ForegroundColor Red
+        Write-Host "`nNo INF files were successfully installed." -ForegroundColor Red
     }
 } else {
     Write-Host "Update cancelled." -ForegroundColor Yellow
@@ -674,8 +674,8 @@ if ($response -eq "Y" -or $response -eq "y") {
 
 # Clean up
 Write-Host "`nCleaning up temporary files..." -ForegroundColor Gray
-Clear-TempDriverFolders
+Clear-TempINFFolders
 
-Write-Host "`nDriver update process completed." -ForegroundColor Cyan
+Write-Host "`nINF files update process completed." -ForegroundColor Cyan
 Write-Host "If you have any issues with this tool, please report them at:"
 Write-Host "https://github.com/FirstEverTech/Universal-Intel-Chipset-Updater" -ForegroundColor Cyan
