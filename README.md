@@ -32,7 +32,7 @@ Automated tool to detect and update Intel chipset INF files to the latest versio
 
 ### Option 1: SFX EXE (Recommended)
 1. Download the self-extracting executable:  
-   `ChipsetUpdater-10.1-2025.11-INF64-Win10-Win11.exe` from the repository
+   `ChipsetUpdater-10.1-2025.11-INF-Win10-Win11.exe` from the repository
 2. Run the EXE as Administrator
 3. Follow the on-screen prompts to scan and update your INFs
 
