@@ -8,6 +8,8 @@
 
 Automated tool to detect and update Intel chipset INF files to the latest versions. Supports all Intel platforms from Sandy Bridge (2nd Gen) to the latest Panther Lake (15th Gen).
 
+The Intel Chipset Device Software installs the Windows INF files. An INF is a text file that provides the operating system with information about a piece of hardware on the system. In the case of the current Intel Chipset Device Software, that information is primarily the product name for the piece of hardware. This allows the operating system to show the correct name for that piece of hardware in Device Manager.
+
 ## ✨ Features
 
 - 🔍 **Automatic Hardware Detection** - Identifies your Intel chipset and finds matching INF files using the comprehensive HWID database
