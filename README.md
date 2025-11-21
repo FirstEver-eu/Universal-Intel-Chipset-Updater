@@ -5,7 +5,7 @@
 ![Windows](https://img.shields.io/badge/Windows-10%2F11-blue?style=for-the-badge)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5.0+-blueviolet?style=for-the-badge)
 
-![Security Audit](https://img.shields.io/badge/Audit_Score-9.4%2F10-0056b3?style=for-the-badge)
+![Security Audit](https://img.shields.io/badge/Audit_Score-8.9%2F10-0056b3?style=for-the-badge)
 ![Reliability](https://img.shields.io/badge/Reliability-Excellent-0a8f08?style=for-the-badge)
 ![Issues](https://img.shields.io/github/issues/FirstEverTech/Universal-Intel-Chipset-Updater?color=blue&style=for-the-badge)
 ![VirusTotal](https://img.shields.io/badge/VirusTotal-0%2F98-008631?style=for-the-badge)
