@@ -247,8 +247,8 @@ This project is an attempt to bring:
 
 …to a part of the Windows ecosystem that has been neglected for more than a decade.
 
-If you discover inconsistencies in the database, I’ll be happy to update it.
-The community contributions already helped refine hundreds of entries.
+If you discover inconsistencies in the database, I’ll be happy to update it.  
+The community contributions already helped refine hundreds of entries.  
 
 Author: [Marcin Grygiel (LinkedIn)](https://www.linkedin.com/in/marcin-grygiel)
 
