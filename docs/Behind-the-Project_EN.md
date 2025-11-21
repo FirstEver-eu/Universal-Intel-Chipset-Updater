@@ -233,7 +233,7 @@ Logs:
 
 ---
 
-🧠 10. Final Thoughts: Why This Project Exists
+## 🧠 10. Final Thoughts: Why This Project Exists
 
 Intel’s chipset INF ecosystem has evolved for nearly 25 years — with thousands of files, constant hardware churn, and no authoritative “final” version list for older platforms.
 
@@ -256,7 +256,7 @@ Author: [Marcin Grygiel (LinkedIn)](https://www.linkedin.com/in/marcin-grygiel)
 
 ---
 
-📘 Useful Links
+## 📘 Useful Links
 
 
 - [Latest Version Matrix](https://github.com/FirstEverTech/Universal-Intel-Chipset-Updater/blob/main/Intel_Chipset_Drivers_Latest.md)
