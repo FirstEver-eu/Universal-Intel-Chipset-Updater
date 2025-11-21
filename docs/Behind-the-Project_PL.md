@@ -256,7 +256,7 @@ Autor: [Marcin Grygiel (LinkedIn)](https://www.linkedin.com/in/marcin-grygiel)
 
 ---
 
-📘 Przydatne linki
+## 📘 Przydatne linki
 
 
 - [Najnowsze Wersje](https://github.com/FirstEverTech/Universal-Intel-Chipset-Updater/blob/main/Intel_Chipset_Drivers_Latest.md)
