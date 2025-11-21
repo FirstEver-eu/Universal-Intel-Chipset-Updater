@@ -252,7 +252,7 @@ This project is an attempt to bring:
 If you discover inconsistencies in the database, I’ll be happy to update it.  
 The community contributions already helped refine hundreds of entries.  
 
-Author: [Marcin Grygiel (LinkedIn)](https://www.linkedin.com/in/marcin-grygiel)
+Author: Marcin Grygiel aka FirstEver ([LinkedIn](https://www.linkedin.com/in/marcin-grygiel))
 
 ---
 
