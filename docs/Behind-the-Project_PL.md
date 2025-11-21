@@ -249,8 +249,8 @@ Ten projekt jest próbą wniesienia:
 
 ...do części ekosystemu Windows, która była zaniedbywana przez ponad dekadę.
 
-Jeśli odkryjesz niespójności w bazie danych, chętnie je zaktualizuję.
-Wkład społeczności już pomógł udoskonalić setki wpisów.
+Jeśli odkryjesz niespójności w bazie danych, chętnie je zaktualizuję.  
+Wkład społeczności już pomógł udoskonalić setki wpisów.  
 
 Autor: [Marcin Grygiel (LinkedIn)](https://www.linkedin.com/in/marcin-grygiel)
 
