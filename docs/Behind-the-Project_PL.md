@@ -233,7 +233,7 @@ Logs:
 
 ---
 
-🧠 10. Ostatnie przemyślenia: Dlaczego ten projekt istnieje
+## 🧠 10. Ostatnie przemyślenia: Dlaczego ten projekt istnieje
 
 Ekosystem INF chipsetów Intela ewoluował przez prawie 25 lat — z tysiącami plików, ciągłą rotacją sprzętu i brakiem autorytatywnej, "ostatecznej" listy wersji dla starszych platform.
 
