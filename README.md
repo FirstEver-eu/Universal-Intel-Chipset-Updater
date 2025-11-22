@@ -31,10 +31,10 @@ This project has undergone comprehensive analysis by multiple AI security expert
 
 ## 🖼️ Application Overview
 
-| Detection Phase | Update Process | Security Verification |
+| Detection Phase | Security Verification | Update Process |
 |:---------------:|:--------------:|:-------------------:|
-| ![Hardware Detection](Assets/Screenshot_Detection.png) | ![Update Process](Assets/Screenshot_Update.png) | ![Security Check](Assets/Screenshot_Security.png) |
-| *Automatic hardware scanning* | *Update confirmation dialog* | *Hash verification in action* |
+| ![Hardware Detection](Assets/Screenshot_Detection.png) | ![Security Check](Assets/Screenshot_Security.png) | ![Update Process](Assets/Screenshot_Update.png) |
+| *Automatic hardware scanning* | *Hash verification in action* | *Update confirmation dialog* |
 
 ## ✨ Key Features
 
