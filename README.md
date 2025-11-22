@@ -138,31 +138,47 @@ For current limitations and workarounds, please see: [KNOWN_ISSUES.md](KNOWN_ISS
 
 ## 📁 Project Structure
 
-**Key Files:**
+**Key Files and Directories:**
 
-`Executables/`
-- [universal-intel-chipset-updater.bat](universal-intel-chipset-updater.bat) - Main batch script
-- [universal-intel-chipset-updater.ps1](universal-intel-chipset-updater.ps1) - Main PowerShell script  
-- [get-intel-hwids.bat](get-intel-hwids.bat) - Hardware ID scanner batch script
-- [get-intel-hwids.ps1](get-intel-hwids.ps1) - Hardware ID scanner PowerShell script
+`src/` - Main scripts directory
+- [universal-intel-chipset-updater.bat](src/universal-intel-chipset-updater.bat) - Main batch script
+- [universal-intel-chipset-updater.ps1](src/universal-intel-chipset-updater.ps1) - Main PowerShell script  
+- [get-intel-hwids.bat](src/get-intel-hwids.bat) - Hardware ID scanner batch script
+- [get-intel-hwids.ps1](src/get-intel-hwids.ps1) - Hardware ID scanner PowerShell script
 
-`Security/`
-- [SECURITY.md](SECURITY.md) - Security policy
-- [SECURITY-AUDITS.md](SECURITY-AUDITS.md) - Comprehensive security audits summary
-- [docs/audit-reports/](docs/audit-reports/) - Detailed audit reports
+`data/` - Data files
+- [intel-chipset-infs-latest.md](data/intel-chipset-infs-latest.md) - Latest INF database
+- [intel-chipset-infs-download.txt](data/intel-chipset-infs-download.txt) - Download links
 
-`Documentation/`
-- [intel_chipset_infs_latest.md](intel_chipset_infs_latest.md) - Latest INF database
-- [intel_chipset_infs_download.txt](intel_chipset_infs_download.txt) - Download links
-- [KNOWN_ISSUES.md](KNOWN_ISSUES.md) - Known issues and workarounds
+`docs/` - Documentation
 - [BEHIND-THE-PROJECT_EN.md](docs/BEHIND-THE-PROJECT_EN.md) - Project background (English)
 - [BEHIND-THE-PROJECT_PL.md](docs/BEHIND-THE-PROJECT_PL.md) - Project background (Polish)
+- `audit-reports/` - Security audit reports
+  - [2025-11-21-CHATGPT-AUDIT.md](docs/audit-reports/2025-11-21-CHATGPT-AUDIT.md)
+  - [2025-11-21-CLAUDE-AUDIT.md](docs/audit-reports/2025-11-21-CLAUDE-AUDIT.md)
+  - [2025-11-21-COPILOT-AUDIT.md](docs/audit-reports/2025-11-21-COPILOT-AUDIT.md)
+  - [2025-11-21-DEEPSEEK-AUDIT.md](docs/audit-reports/2025-11-21-DEEPSEEK-AUDIT.md)
+  - [2025-11-21-GEMINI-AUDIT.md](docs/audit-reports/2025-11-21-GEMINI-AUDIT.md)
+  - [2025-11-21-GROK-AUDIT.md](docs/audit-reports/2025-11-21-GROK-AUDIT.md)
 
-`Assets/`
-- [screenshots/](assets/) - Tool screenshots
+`assets/` - Screenshots
+- [screenshot-detection.png](assets/screenshot-detection.png)
+- [screenshot-security.png](assets/screenshot-security.png)
+- [screenshot-update.png](assets/screenshot-update.png)
 
-`Legal/`
+`ISSUE_TEMPLATE/` - Issue templates
+- [bug_report.md](ISSUE_TEMPLATE/bug_report.md)
+- [config.yml](ISSUE_TEMPLATE/config.yml)
+
+**Root Directory Files:**
+- [CHANGELOG.md](CHANGELOG.md) - Project changelog
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
+- [KNOWN_ISSUES.md](KNOWN_ISSUES.md) - Known issues and workarounds
 - [LICENSE](LICENSE) - MIT License
+- [PULL_REQUEST_TEMPLATE.md](PULL_REQUEST_TEMPLATE.md) - Pull request template
+- [README.md](README.md) - Main project documentation
+- [SECURITY.md](SECURITY.md) - Security policy
+- [SECURITY-AUDITS.md](SECURITY-AUDITS.md) - Comprehensive security audits summary
 
 ## ❓ Frequently Asked Questions
 
