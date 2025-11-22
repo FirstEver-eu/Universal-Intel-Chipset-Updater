@@ -154,7 +154,7 @@ For current limitations and workarounds, please see: [KNOWN_ISSUES.md](KNOWN_ISS
 - [BEHIND-THE-PROJECT_EN.md](docs/BEHIND-THE-PROJECT_EN.md) - Project background (English)
 - [BEHIND-THE-PROJECT_PL.md](docs/BEHIND-THE-PROJECT_PL.md) - Project background (Polish)
   
-- `docs/audit-reports/` - Security audit reports
+- `audit-reports/` - Security audit reports
 
   - [2025-11-21-CHATGPT-AUDIT.md](docs/audit-reports/2025-11-21-CHATGPT-AUDIT.md)
   - [2025-11-21-CLAUDE-AUDIT.md](docs/audit-reports/2025-11-21-CLAUDE-AUDIT.md)
