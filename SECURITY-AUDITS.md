@@ -4,7 +4,7 @@ This document provides a comprehensive overview of independent security audits c
 
 ## Executive Summary
 
-The project has been thoroughly reviewed by 6 independent AI security experts, achieving an **average security score of 9.1/10**.
+The project has been thoroughly reviewed by 6 independent AI security experts, achieving an **average security score of 9.1/10**.  
 All auditors confirmed the tool's safety, stability, and enterprise-grade reliability.
 
 ---
