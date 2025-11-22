@@ -55,7 +55,7 @@ After extracting all packages, I obtained:
 - 86,783 version relations
 
 From this dataset, I generated the first-ever complete Intel chipset INF version matrix, now available here:  
-👉 [Intel Chipset Drivers Latest](https://github.com/FirstEverTech/Universal-Intel-Chipset-Updater/blob/main/Intel_Chipset_INFs_Latest.md)
+👉 [Intel Chipset INF Files List](https://github.com/FirstEverTech/Universal-Intel-Chipset-Updater/blob/main/Intel_Chipset_INFs_Latest.md)
 
 This database is the foundation of the updater tool.
 
