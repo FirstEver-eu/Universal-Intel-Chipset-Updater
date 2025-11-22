@@ -141,10 +141,10 @@ For current limitations and workarounds, please see: [KNOWN_ISSUES.md](KNOWN_ISS
 **Key Files:**
 
 `Executables/`
-- [UNIVERSAL-INTEL-CHIPSET-UPDATER.bat](UNIVERSAL-INTEL-CHIPSET-UPDATER.bat) - Main batch script
-- [UNIVERSAL-INTEL-CHIPSET-UPDATER.ps1](UNIVERSAL-INTEL-CHIPSET-UPDATER.ps1) - Main PowerShell script  
-- [GET-INTEL-HWIDS.bat](GET-INTEL-HWIDS.bat) - Hardware ID scanner batch script
-- [GET-INTEL-HWIDS.ps1](GET-INTEL-HWIDS.ps1) - Hardware ID scanner PowerShell script
+- [universal-intel-chipset-updater.bat](universal-intel-chipset-updater.bat) - Main batch script
+- [universal-intel-chipset-updater.ps1](universal-intel-chipset-updater.ps1) - Main PowerShell script  
+- [get-intel-hwids.bat](get-intel-hwids.bat) - Hardware ID scanner batch script
+- [get-intel-hwids.ps1](get-intel-hwids.ps1) - Hardware ID scanner PowerShell script
 
 `Security/`
 - [SECURITY.md](SECURITY.md) - Security policy
@@ -152,8 +152,8 @@ For current limitations and workarounds, please see: [KNOWN_ISSUES.md](KNOWN_ISS
 - [docs/audit-reports/](docs/audit-reports/) - Detailed audit reports
 
 `Documentation/`
-- [INTEL_CHIPSET_INFS_LATEST.md](INTEL_CHIPSET_INFS_LATEST.md) - Latest INF database
-- [INTEL_CHIPSET_INFS_DOWNLOAD.txt](INTEL_CHIPSET_INFS_DOWNLOAD.txt) - Download links
+- [intel_chipset_infs_latest.md](intel_chipset_infs_latest.md) - Latest INF database
+- [intel_chipset_infs_download.txt](intel_chipset_infs_download.txt) - Download links
 - [KNOWN_ISSUES.md](KNOWN_ISSUES.md) - Known issues and workarounds
 - [BEHIND-THE-PROJECT_EN.md](docs/BEHIND-THE-PROJECT_EN.md) - Project background (English)
 - [BEHIND-THE-PROJECT_PL.md](docs/BEHIND-THE-PROJECT_PL.md) - Project background (Polish)
