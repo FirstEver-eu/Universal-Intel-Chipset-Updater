@@ -169,8 +169,8 @@ For current limitations and workarounds, please see: [KNOWN_ISSUES.md](KNOWN_ISS
 - [screenshot-update.png](assets/screenshot-update.png)
 
 `ISSUE_TEMPLATE/` - Issue templates
-- [bug_report.md](ISSUE_TEMPLATE/bug_report.md)
-- [config.yml](ISSUE_TEMPLATE/config.yml)
+- [bug_report.md](ISSUE_TEMPLATE/bug_report.md) - Bug report template
+- [config.yml](ISSUE_TEMPLATE/config.yml) - Issue templates configuration file
 
 `/` - Root directory files
 - [CHANGELOG.md](CHANGELOG.md) - Project changelog
