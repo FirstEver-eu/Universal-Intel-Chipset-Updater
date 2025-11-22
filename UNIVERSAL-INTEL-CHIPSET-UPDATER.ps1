@@ -17,8 +17,8 @@ $DebugMode = 0  # 0 = Disabled, 1 = Enabled
 
 # GitHub repository URLs
 $githubBaseUrl = "https://raw.githubusercontent.com/FirstEverTech/Universal-Intel-Chipset-Updater/main/"
-$chipsetINFsUrl = $githubBaseUrl + "Intel_Chipset_INFs_Latest.md"
-$downloadListUrl = $githubBaseUrl + "Intel_Chipset_INFs_Download.txt"
+$chipsetINFsUrl = $githubBaseUrl + "INTEL_CHIPSET_INFS_LATEST.md"
+$downloadListUrl = $githubBaseUrl + "INTEL_CHIPSET_INFS_DOWNLOAD.txt"
 
 # Temporary directory for downloads
 $tempDir = "C:\Windows\Temp\IntelChipset"
