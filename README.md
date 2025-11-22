@@ -33,7 +33,7 @@ This project has undergone comprehensive analysis by multiple AI security expert
 
 | Detection Phase | Security Verification | Update Process |
 |:---------------:|:--------------:|:-------------------:|
-| ![Hardware Detection](assets/Screenshot_Detection.png) | ![Security Check](assets/Screenshot_Security.png) | ![Update Process](assets/Screenshot_Update.png) |
+| ![Hardware Detection](assets/screenshot-detection.png) | ![Security Check](assets/screenshot-security.png) | ![Update Process](assets/screenshot-update.png) |
 | *Automatic hardware scanning* | *Hash verification in action* | *Update confirmation dialog* |
 
 ## ✨ Key Features
@@ -141,25 +141,25 @@ For current limitations and workarounds, please see: [KNOWN_ISSUES.md](KNOWN_ISS
 **Key Files:**
 
 `Executables/`
-- [Universal-Intel-Chipset-Updater.bat](Universal-Intel-Chipset-Updater.bat) - Main batch script
-- [Universal-Intel-Chipset-Updater.ps1](Universal-Intel-Chipset-Updater.ps1) - Main PowerShell script  
-- [Get-Intel-HWIDs.bat](Get-Intel-HWIDs.bat) - Hardware ID scanner batch script
-- [Get-Intel-HWIDs.ps1](Get-Intel-HWIDs.ps1) - Hardware ID scanner PowerShell script
+- [UNIVERSAL-INTEL-CHIPSET-UPDATER.bat](UNIVERSAL-INTEL-CHIPSET-UPDATER.bat) - Main batch script
+- [UNIVERSAL-INTEL-CHIPSET-UPDATER.ps1](UNIVERSAL-INTEL-CHIPSET-UPDATER.ps1) - Main PowerShell script  
+- [GET-INTEL-HWIDS.bat](GET-INTEL-HWIDS.bat) - Hardware ID scanner batch script
+- [GET-INTEL-HWIDS.ps1](GET-INTEL-HWIDS.ps1) - Hardware ID scanner PowerShell script
 
 `Security/`
 - [SECURITY.md](SECURITY.md) - Security policy
 - [SECURITY-AUDITS.md](SECURITY-AUDITS.md) - Comprehensive security audits summary
-- [Docs/Audit-Reports/](Docs/Audit-Reports/) - Detailed audit reports
+- [docs/audit-reports/](docs/audit-reports/) - Detailed audit reports
 
 `Documentation/`
-- [Intel_Chipset_INFs_Latest.md](Intel_Chipset_INFs_Latest.md) - Latest INF database
-- [Intel_Chipset_INFs_Download.txt](Intel_Chipset_INFs_Download.txt) - Download links
+- [INTEL_CHIPSET_INFS_LATEST.md](INTEL_CHIPSET_INFS_LATEST.md) - Latest INF database
+- [INTEL_CHIPSET_INFS_DOWNLOAD.txt](INTEL_CHIPSET_INFS_DOWNLOAD.txt) - Download links
 - [KNOWN_ISSUES.md](KNOWN_ISSUES.md) - Known issues and workarounds
-- [Behind-the-Project_EN.md](Docs/Behind-the-Project_EN.md) - Project background (English)
-- [Behind-the-Project_PL.md](Docs/Behind-the-Project_PL.md) - Project background (Polish)
+- [BEHIND-THE-PROJECT_EN.md](docs/BEHIND-THE-PROJECT_EN.md) - Project background (English)
+- [BEHIND-THE-PROJECT_PL.md](docs/BEHIND-THE-PROJECT_PL.md) - Project background (Polish)
 
 `Assets/`
-- [Screenshots/](Assets/) - Tool screenshots
+- [screenshots/](assets/) - Tool screenshots
 
 `Legal/`
 - [LICENSE](LICENSE) - MIT License
