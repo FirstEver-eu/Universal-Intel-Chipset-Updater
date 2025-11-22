@@ -5,7 +5,7 @@
 [![Windows](https://img.shields.io/badge/Windows-10%2F11-blue?style=for-the-badge)](https://www.microsoft.com/windows)
 [![PowerShell](https://img.shields.io/badge/PowerShell-5.0+-blueviolet?style=for-the-badge)](https://docs.microsoft.com/powershell)
 
-[![Security Audit](https://img.shields.io/badge/Audit_Score-9.1%2F10-0a8f08?style=for-the-badge)](SECURITY.md)
+[![Security Audit](https://img.shields.io/badge/Audit_Score-9.1%2F10-0a8f08?style=for-the-badge)](https://github.com/FirstEverTech/Universal-Intel-Chipset-Updater/blob/main/SECURITY-AUDITS.md)
 [![Reliability](https://img.shields.io/badge/Reliability-Excellent-0a8f08?style=for-the-badge)](https://github.com/FirstEverTech/Universal-Intel-Chipset-Updater/wiki/Reliability)
 [![Issues](https://img.shields.io/github/issues/FirstEverTech/Universal-Intel-Chipset-Updater?style=for-the-badge)](https://github.com/FirstEverTech/Universal-Intel-Chipset-Updater/issues)
 [![VirusTotal](https://img.shields.io/badge/VirusTotal-0%2F98-008631?style=for-the-badge)](https://www.virustotal.com/gui/url/df2dce8042ae4e9e7289aefc095e55361414c7f9d305db061ec7d52c0e7f9f9d)
