@@ -1085,7 +1085,7 @@ try {
                 }
             } else {
                 Write-Host "Error: Download information not found for package version $cleanPackageVersion (variant: $variant)" -ForegroundColor Red
-                Write-Host "Please check Intel_Chipset_INFs_Download.txt for missing entries." -ForegroundColor Yellow
+                Write-Host "Please check INTEL_CHIPSET_INFS_DOWNLOAD.txt for missing entries." -ForegroundColor Yellow
                 Write-DebugMessage "Download key not found: $downloadKey"
             }
         }
