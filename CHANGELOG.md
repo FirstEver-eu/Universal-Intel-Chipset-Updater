@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [10.1-2025.11.7] - 2025-11-26
+## [10.1-2025.11.7] - 2025-11-25
 
 ### Added
 - **Final Credits Screen**: New thank you screen with project information and support message, displayed for 5 seconds before automatic closure
