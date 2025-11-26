@@ -94,7 +94,7 @@ This project has undergone comprehensive analysis by multiple AI security expert
 | **OS** | Windows 10/11 (x64) | All versions supported |
 | **PowerShell** | Version 5.0+ | Built into Windows 10/11 |
 | **Privileges** | Administrator rights | Required for system changes |
-| **Storage** | ~500MB temporary space | Automatic cleanup |
+| **Storage** | ~10MB temporary space | Automatic cleanup |
 | **Internet** | Required | For database and update checks |
 | **System Restore** | Enabled (recommended) | Automatic restore point creation |
 
