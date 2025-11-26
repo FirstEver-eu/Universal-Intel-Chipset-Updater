@@ -14,7 +14,7 @@
 
 **Universal Intel Chipset Updater** is an advanced, security-focused tool that automatically detects your Intel hardware and installs the latest official chipset **INF files** with enterprise-grade safety measures.
 
-## 🎉 Latest Release Highlights (v10.1-2025.11.7 & v10.1-2025.11.6)
+## 🎉 Latest Release Highlights (v10.1-2025.11.7)
 
 ### 🆕 New Security & User Experience Features
 - **Self-Hash Verification** - Tool now validates its own integrity before execution
