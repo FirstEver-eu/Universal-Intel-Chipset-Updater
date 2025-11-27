@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [10.1-2025.11.8] - 2025-11-27
+
+### New Features
+- **Enhanced platform detection**: Added automatic detection for Intel platforms that use Windows 11 24H2 inbox drivers (e.g., Meteor Lake)
+- **Improved user communication**: Clear informational messages when Windows inbox drivers are detected
+- **Smart exclusion system**: Platforms with `Package = None` in the database are automatically excluded from updates
+- **Better date handling**: Windows inbox driver dates now use digital signature dates from corresponding .cat files
+
+### Technical Improvements
+- **Updated parsing logic**: Script now identifies Windows inbox-only platforms during hardware detection
+- **Enhanced error handling**: Improved debug messages and logging for platform detection
+- **Streamlined user experience**: Separate section for Windows inbox platforms in the output
+
+### Bug Fixes
+- Fixed potential false positives for unsupported platforms
+- Improved handling of platforms without separate Intel Chipset Device Software packages
+
+---
+
 ## [10.1-2025.11.7] - 2025-11-25
 
 ### Added
