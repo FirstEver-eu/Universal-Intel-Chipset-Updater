@@ -66,9 +66,9 @@ The Intel Chipset Device Software installs the Windows INF files. An INF is a te
 
 | INF | Package | Version | Date | HWIDs |
 |--------|---------|---------|------|--------|
-| MeteorLakeSystem.inf | None | 10.1.47.12 | 27/06/2025\* | 7E24, AE24 |
-| MeteorLakePCH-SSystem.inf | None | 10.1.51.8 | 27/06/2025\* | 7F2F, 7F58, 7F59, 7F69 |
-| MeteorLakeSystemNorthPeak.inf | None | 10.1.47.12 | 27/06/2025\* | 7E24, AE24 |
+| MeteorLakeSystem.inf | None | 10.1.47.12 | 21/05/2024\* | 7E24, AE24 |
+| MeteorLakePCH-SSystem.inf | None | 10.1.51.8 | 21/05/2024\* | 7F2F, 7F58, 7F59, 7F69 |
+| MeteorLakeSystemNorthPeak.inf | None | 10.1.47.12 | 21/05/2024\* | 7E24, AE24 |
 
 *Note: All desktop Meteor Lake devices are supported only via Windows 11 24H2 inbox drivers; these HWIDs are not included in any Intel Chipset Device Software package.*
 
@@ -444,6 +444,6 @@ The Intel Chipset Device Software installs the Windows INF files. An INF is a te
 
 **Note on package versions:** Intel occasionally releases INFs packages in two variants: consumer and server. Each variant may provide INF files for different devices. In this list, we denote the server variant with the `(S)` suffix to distinguish it from the consumer version.
 
-INFs marked with `*` indicate that no date was embedded in the INFs, so the system automatically assigned the default minimal date — 18/07/1968. An approximate release date is provided based on the certificate timestamp found in the Intel Chipset Device Software installer.
+INFs marked with `*` indicate that no date was embedded in the INFs, so the system automatically assigned the default minimal date — 18/07/1968. An approximate release date is provided based on the certificate timestamp found in the Intel Chipset Device Software installer. Windows inbox driver INFs use the digital signature date of the corresponding .cat file.
 
 **Source:** [Intel Chipset INFs Updater](https://github.com/FirstEver-eu/Intel-Chipset-Updater/blob/main/Intel_Chipsets_INFs_Latest.md) / **Project by:** [Marcin Grygiel](https://www.linkedin.com/in/marcin-grygiel/) / **Last Update:** 2025-11-12
